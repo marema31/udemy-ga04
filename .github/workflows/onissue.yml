@@ -1,10 +1,9 @@
-name: issue-opened
+name: issue-modified
 on:
   issues:
-    types: [opened, edited,closed]
+    types: [ edited,closed]
 jobs:
   output:
     runs-on: ubuntu-latest
     steps:
-      - run: echo issue opened with ${{inputs.id}}
-      - run: echo GH context ${{github.event}}
+      - run: echo modified issue "${{ toJSON(github.event.issue.id) }}"
