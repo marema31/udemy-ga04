@@ -1,0 +1,10 @@
+name: issue-opened
+on:
+  issues:
+    types: [opened, edited,closed]
+jobs:
+  output:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo issue opened with ${{inputs.id}}
+      - run: echo GH context ${{github.event}}
